@@ -1,9 +1,10 @@
-import { useRef ,useState} from "react";
+import { useRef ,useState,useEffect} from "react";
 function Display({songs}) {
     let musicref = useRef();
     let [play,setPlay] = useState(false);
     let [musicsrc,Setsrc] = useState(null);
-    let PlayMusic = (path)=>{
+    useEffect(()=>{
+        let PlayMusic = (path)=>{
         musicref.current.src  = path
         if(path ===musicsrc){
             if (play){
@@ -23,6 +24,8 @@ function Display({songs}) {
         }
     }
 
+    },[PlayMusic])
+    
   return (
     <div>
        {songs.map((song)=>{

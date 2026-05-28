@@ -45,7 +45,8 @@ const CheckBox= () => {
 
   let { html, css, js } = checked;
 
-  let handleMultipleCheckBox = (data, value, e) => {
+  let handleMultipleCheckBox = (e) => {
+    let {data,value} =e.target;
     setChecked({ ...checked, [data]: !value });
   };
 
